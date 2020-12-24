@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://nkiiiiid.github.io">
-  <title>nkiiiiid</title>
+  <title>Archives: 2020/12 | nkiiiiid</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content=""> -->
-  
   <meta property="og:type" content="website">
 <meta property="og:title" content="nkiiiiid">
-<meta property="og:url" content="https://nkiiiiid.github.io/index.html">
+<meta property="og:url" content="https://nkiiiiid.github.io/archives/2020/12/index.html">
 <meta property="og:site_name" content="nkiiiiid">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="海森堡测不准面包">
@@ -194,285 +190,53 @@
           </div>
           <div id="js-content" class="content-ll">
             
-
   
-    <article id="post-0x02八木天线基础和4nec2仿真" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/" target="_blank">0x02八木天线基础和4nec2仿真</a>
-  
-    </h1>
-  
-
-
-  
-  
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
 <a href="/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/" class="archive-article-date">
         <time datetime="2020-12-24T12:40:48.835Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-24</time>
 </a>
 
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="天线从入门到牛逼"><a href="#天线从入门到牛逼" class="headerlink" title="天线从入门到牛逼"></a>天线从入门到牛逼</h1><p><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608819252405.png" alt="圣诞快乐"></p>
-<h4 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h4><p> 天线特别是八木天线有很广泛的应用范围，预警机上的大圆盘实质也是个旋转的八木天线，纵观村里的博客、论坛，对天线原理，计算，仿真的讲解很少，概念模糊，内容重复简单者居多，对4nec2仿真的讲解更是凤毛麟角，本文旨在为天线爱好者提供一个指南，把应该了解和掌握的概念讲清楚，并且以接收538mhz地面波为例实现一个良好性能的八木天线。内容如有错误，欢迎大佬们斧正。</p>
-<h4 id="0x01-天线发射基本原理"><a href="#0x01-天线发射基本原理" class="headerlink" title="0x01 天线发射基本原理"></a>0x01 天线发射基本原理</h4><p>电以接近光的速度在导体中传播，当遇到导体中的不连续点时，它就会被反射回信号源。如果电流是交变的，并且反射电流在恰当的时刻返回原点或馈电点，那么电流就会受到后面各周期的强化，从而只需要很小的能量就可维持天线内的驻波，当天线内驻波比为1时，天线就形成串联谐振电路。在谐振状态下，电压在电流为最大值的中点（振子的中点）是很少，在两端却有极大值，欧姆定律适用于天线，在中点由于电流大，电压低，所以电阻较小，在两端情形恰好相反，因而阻抗较高。<br>1/4波长的开路线相当于一个串联谐振电路，整个负载是呈纯电阻性的，在有些场合，由于环境的因素，天线的长度往往受到限制，所以出现了加载天线。根据传输线的理论，长度小于1/4波长的倍数的天线其阻抗呈容性，即电容+电阻，这时天线不产生谐振，为此我们可以在天线上加一个电感来与天线平衡，从而使天线发生谐振，我们称这种天线为加载天线。<br>长度大于1/4波长的倍数天线就是电感+电阻。</p>
-<h4 id="0x02-八木天线"><a href="#0x02-八木天线" class="headerlink" title="0x02 八木天线"></a>0x02 八木天线</h4><p> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608813976117.png" alt="八木天线结构"><br>由反射器reflector，主振子dipole，引向器director，横梁，支架组成。与馈线连接的振子称为主振子（有源振子，激励振子，偶极子）。振子的总数量即反射器，偶极子和引向器总数又称为单元数。<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814244845.png" alt=""><br>主振子有多种类型，包括半波对称振子，折合半波振子等。半波对称振子是两臂长度相等，总长是二分之一波长。主振子连接馈线的端点称为馈源端子，必须和横梁绝缘，反射器和引向器和横梁导通，横梁接地。<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814343370.png" alt=""><br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814404843.png" alt=""></p>
-<h4 id="0x03-天线振子长度计算"><a href="#0x03-天线振子长度计算" class="headerlink" title="0x03 天线振子长度计算"></a>0x03 天线振子长度计算</h4><p>天线振子长度是指振子端点到主支架的长度，通常是四分之一波长x波长缩短率，如果是八木天线这类成对振子组成的天线，一对振子长度就是二分之一波长。<br>天线振子长度（单位米）= （300/f）<em>0.25</em>0.96, f表示单位为MHz的频率，0.96是波长缩短率（电磁波在天线上传播时，一些因素导致波长变短，即缩短效应，工程上一般认为缩短5%左右）。<br>VHF 144.00MHz的天线振子长度为 （300 / 144.00MHz） * 0.25 * 0.96 = 0.5 （米）</p>
-<h4 id="0x04-dtmb天线"><a href="#0x04-dtmb天线" class="headerlink" title="0x04 dtmb天线"></a>0x04 dtmb天线</h4><p>又称数字电视地面波天线，可以通过八木天线、菱形天线等接收国家开放的地面波数字信号。在中国寻星网<a href="http://www.playtv.com.cn/" target="_blank" rel="noopener">http://www.playtv.com.cn/</a> 可以获取当地的地面波节目的频率，比如宁波宁海频率是538Mhz<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814578748.png" alt=""></p>
-<h4 id="0x05-天线关键性能参数"><a href="#0x05-天线关键性能参数" class="headerlink" title="0x05 天线关键性能参数"></a>0x05 天线关键性能参数</h4><ul>
-<li><p>驻波比</p>
-</li>
-<li><p>提高频带宽度</p>
-</li>
-<li><p>采用折合半波振子或者j型振子</p>
-</li>
-<li><p>增益越高通常带宽越窄</p>
-</li>
-<li><p>增大振子直径，但不超过1%波长</p>
-</li>
-<li><p>振子直径通常为(1/100~1/150)λ</p>
-</li>
-<li><p>减小引向器长度</p>
-</li>
-<li><p>提高增益<br>增加引向器<br>引向器的间距一般取(0.15<del>0.4)λ，大于0.4λ后天线增益将迅速下降，但第一引向器B和主振子的间距应略小于其它间距，例如取b≈0.1λ时，增益将会有所提高。<br>引向器的长度通常为(0.41</del>0.46)λ，单元数愈多，引向器的最佳长度也就愈短</p>
-</li>
-<li><p>前后辐射比<br>反射器长度通常为(0.5<del>0.55)λ，与主振子的间距为(0.15</del>0.23)λ。反射器较长或间距较小可有效地抑制后向辐射，但输入阻抗较低，难于和馈线良好匹配。</p>
-</li>
-<li><p>输入阻抗<br>八木天线各单元间距越小阻抗也越低。为了增大输入阻抗，提高天线效率，故主振子多选用半波折合振子的形式，这样也能同时增加天线的带宽。一般不关注输入阻抗，用驻波比代替该参数进行优化。</p>
-</li>
-</ul>
-<h4 id="0x06天线参数计算规则"><a href="#0x06天线参数计算规则" class="headerlink" title="0x06天线参数计算规则"></a>0x06天线参数计算规则</h4><p>可以参考下面的计算规则确定参数：<br>e=传播速度=300,000,000m/s<br>f=载波频率<br>λ=e/f<br>反射器长度=0. 5λ，修正范围0.5-0.55<br>偶极子长度=0.47λ，修正范围0.47-0.5<br>引向器长度=0.44λ，修正范围0.41-0.46<br>反射器/偶极子间距=0.15λ，修正范围0.15-0.23<br>偶极子/引向器间距=0.1λ，修正范围0.1-0.4<br>引向器间距=0.15λ，修正范围0.15-0.4<br>引向器，2个，修正范围2-4<br>振子半径=1/200λ，修正范围1/300-1/200</p>
-<h4 id="0x07-参数运算脚本"><a href="#0x07-参数运算脚本" class="headerlink" title="0x07 参数运算脚本"></a>0x07 参数运算脚本</h4><p>可以据此写一个脚本计算，并且结合4nec文件的特征，输出结果便于直接粘贴到nec文件中。脚本默认频率是538mhz。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> decimal</span><br><span class="line"><span class="keyword">from</span> decimal <span class="keyword">import</span> Decimal</span><br><span class="line"></span><br><span class="line">context=decimal.getcontext() </span><br><span class="line">context.rounding = decimal.ROUND_HALF_UP</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">roundx</span><span class="params">(a, n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> float(round(Decimal(a), n))</span><br><span class="line"></span><br><span class="line">print(<span class="string">"炒鸡八木计算"</span>)</span><br><span class="line"></span><br><span class="line">c =<span class="number">300</span></span><br><span class="line">f = input(<span class="string">"输入目标频率: "</span>)</span><br><span class="line">f = int(f) <span class="keyword">if</span> f <span class="keyword">else</span> <span class="number">538</span></span><br><span class="line">bc = c/f</span><br><span class="line">bc = roundx(bc,<span class="number">8</span>)</span><br><span class="line">print(<span class="string">"波长 ="</span>, bc)</span><br><span class="line"></span><br><span class="line"><span class="comment">#symbols天线符号变量</span></span><br><span class="line">print(<span class="string">"======="</span>)</span><br><span class="line">ref = roundx(<span class="number">0.5</span>*bc, <span class="number">7</span>)</span><br><span class="line">print(<span class="string">"SY Ref="</span> + str(ref))</span><br><span class="line">dip = roundx(<span class="number">0.47</span>*bc, <span class="number">7</span>)</span><br><span class="line">print(<span class="string">"SY Dip="</span> + str(dip))</span><br><span class="line">dir = roundx(<span class="number">0.44</span>*bc, <span class="number">7</span>)</span><br><span class="line">print(<span class="string">"SY Dir="</span> + str(dir))</span><br><span class="line">refTodip = roundx(<span class="number">0.15</span>*bc, <span class="number">7</span>)</span><br><span class="line">dipTodir = roundx(<span class="number">0.1</span>*bc, <span class="number">7</span>)</span><br><span class="line">dirTodir = roundx(<span class="number">0.15</span>*bc, <span class="number">7</span>)</span><br><span class="line">print(<span class="string">"SY RefToDip="</span>+ str(refTodip))</span><br><span class="line">print(<span class="string">"SY DipToDir="</span> + str(dipTodir))</span><br><span class="line">print(<span class="string">"SY RefToDir=RefToDip+DipToDir"</span>)</span><br><span class="line">print(<span class="string">"SY DirToDir="</span> + str(dirTodir))</span><br><span class="line">print(<span class="string">"SY RefToDir2=RefToDir+DirToDir"</span>)</span><br><span class="line"><span class="comment">#geometry天线尺寸</span></span><br><span class="line">rad = roundx(<span class="number">0.005</span>*bc, <span class="number">4</span>)</span><br><span class="line">refgw = <span class="string">"GW 1 9 -Ref/2 0 0.2 Ref/2 0 0.2 "</span> + str(rad)</span><br><span class="line">print(refgw)</span><br><span class="line">dipgw = <span class="string">"GW 2 9 -Dip/2 RefToDip 0.2 Dip/2 RefToDip 0.2 "</span> + str(rad)</span><br><span class="line">print(dipgw)</span><br><span class="line">dirgw = <span class="string">"GW 3 9 -Dir/2 RefToDir 0.2 Dir/2 RefToDir 0.2 "</span> + str(rad)</span><br><span class="line">print(dirgw)</span><br><span class="line">dir2gw = <span class="string">"GW 4 9 -Dir/2 RefToDir2 0.2 Dir/2 RefToDir2 0.2 "</span>+ str(rad)</span><br><span class="line">print(dir2gw)</span><br><span class="line">print(<span class="string">"========"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#修正数</span></span><br><span class="line">refmin = roundx(<span class="number">0.5</span>*bc, <span class="number">3</span>)</span><br><span class="line">refmax = roundx(<span class="number">0.55</span>*bc, <span class="number">3</span>)</span><br><span class="line">dipmin = roundx(<span class="number">0.47</span>*bc, <span class="number">3</span>)</span><br><span class="line">dipmax = roundx(<span class="number">0.5</span>*bc, <span class="number">3</span>)</span><br><span class="line">dirmin = roundx(<span class="number">0.41</span>*bc, <span class="number">3</span>)</span><br><span class="line">dirmax = roundx(<span class="number">0.46</span>*bc, <span class="number">3</span>)</span><br><span class="line">refdipmin = roundx(<span class="number">0.15</span>*bc, <span class="number">3</span>)</span><br><span class="line">refdipmax = roundx(<span class="number">0.23</span>*bc, <span class="number">3</span>)</span><br><span class="line">dipdirmin = roundx(<span class="number">0.1</span>*bc, <span class="number">3</span>)</span><br><span class="line">dipdirmax = roundx(<span class="number">0.4</span>*bc, <span class="number">3</span>)</span><br><span class="line">dirdirmin = roundx(<span class="number">0.15</span>*bc, <span class="number">3</span>)</span><br><span class="line">dirdirmax = roundx(<span class="number">0.4</span>*bc, <span class="number">3</span>)</span><br><span class="line">print(<span class="string">"反射器修正"</span>,refmin,refmax)</span><br><span class="line">print(<span class="string">"偶极子修正"</span>,dipmin,dipmax)</span><br><span class="line">print(<span class="string">"引向器修正"</span>,dirmin,dirmax)</span><br><span class="line">print(<span class="string">"反射器偶极子修正"</span>,refdipmin,refdipmax)</span><br><span class="line">print(<span class="string">"偶极子引向器修正"</span>,dipdirmin,dipdirmax)</span><br><span class="line">print(<span class="string">"引向器间距修正"</span>,dirdirmin,dirdirmax)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入目标频率:</span><br><span class="line">波长 = <span class="number">0.55762082</span></span><br><span class="line">=======</span><br><span class="line">SY Ref=<span class="number">0.2788104</span></span><br><span class="line">SY Dip=<span class="number">0.2620818</span></span><br><span class="line">SY Dir=<span class="number">0.2453532</span></span><br><span class="line">SY RefToDip=<span class="number">0.0836431</span></span><br><span class="line">SY DipToDir=<span class="number">0.0557621</span></span><br><span class="line">SY RefToDir=RefToDip+DipToDir</span><br><span class="line">SY DirToDir=<span class="number">0.0836431</span></span><br><span class="line">SY RefToDir2=RefToDir+DirToDir</span><br><span class="line">GW <span class="number">1</span> <span class="number">9</span> -Ref/<span class="number">2</span> <span class="number">0</span> <span class="number">0.2</span> Ref/<span class="number">2</span> <span class="number">0</span> <span class="number">0.2</span> <span class="number">0.0028</span></span><br><span class="line">GW <span class="number">2</span> <span class="number">9</span> -Dip/<span class="number">2</span> RefToDip <span class="number">0.2</span> Dip/<span class="number">2</span> RefToDip <span class="number">0.2</span> <span class="number">0.0028</span></span><br><span class="line">GW <span class="number">3</span> <span class="number">9</span> -Dir/<span class="number">2</span> RefToDir <span class="number">0.2</span> Dir/<span class="number">2</span> RefToDir <span class="number">0.2</span> <span class="number">0.0028</span></span><br><span class="line">GW <span class="number">4</span> <span class="number">9</span> -Dir/<span class="number">2</span> RefToDir2 <span class="number">0.2</span> Dir/<span class="number">2</span> RefToDir2 <span class="number">0.2</span> <span class="number">0.0028</span></span><br><span class="line">========</span><br><span class="line">反射器修正 <span class="number">0.279</span> <span class="number">0.307</span></span><br><span class="line">偶极子修正 <span class="number">0.262</span> <span class="number">0.279</span></span><br><span class="line">引向器修正 <span class="number">0.229</span> <span class="number">0.257</span></span><br><span class="line">反射器偶极子修正 <span class="number">0.084</span> <span class="number">0.128</span></span><br><span class="line">偶极子引向器修正 <span class="number">0.056</span> <span class="number">0.223</span></span><br><span class="line">引向器间距修正 <span class="number">0.084</span> <span class="number">0.223</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="0x08天线仿真"><a href="#0x08天线仿真" class="headerlink" title="0x08天线仿真"></a>0x08天线仿真</h4><p>4nec2是美国海军开发的天线设计仿真软件，启动时默认打开一个example，ctrl+f4打开nec edit，点击菜单文件—另存为，保存为yagi.nec<br>这样就新建了一个项目。在保存目录下是一个nec文件：<br>结构大致为：</p>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CM Example <span class="number">1</span> :	Dipole in free space</span><br><span class="line">CE</span><br><span class="line">SY Ref=<span class="number">0.3132911</span></span><br><span class="line">SY Dip=<span class="number">0.2993671</span></span><br><span class="line">SY Dir=<span class="number">0.278481</span></span><br><span class="line">SY RefToDip=<span class="number">0.0791139</span></span><br><span class="line">GW	<span class="number">1</span>	<span class="number">9</span>	<span class="number">0</span>	-.<span class="number">2418	0	0</span>	.<span class="number">2418</span>	<span class="number">0</span>	.<span class="number">0001</span>	'Wire <span class="number">1</span>, <span class="number">9</span> segments, halve wavelength long.</span><br><span class="line">GE	<span class="number">0</span></span><br><span class="line">GN	-<span class="number">1</span></span><br><span class="line">EK</span><br><span class="line">EX	<span class="number">0	1	5	0</span>	<span class="number">1</span>	<span class="number">0</span>			'Voltage source (<span class="number">1</span>+j0) at wire <span class="number">1</span> segment <span class="number">5</span>.</span><br><span class="line">FR	<span class="number">0	0	0	0</span>	<span class="number">300</span>	<span class="number">0</span></span><br><span class="line">EN</span><br></pre></td></tr></table></figure>
-
-<p>nec edit输入的内容对应到nec文件中是：<br>CM，对应电流（翻译错误，应当是注释）选项卡<br>CE到GE区间保存了，符号symbols，以SY开头，几何图geometry，以GW开头<br>EK，其他选项卡，use extended kernel<br>EX，源负载<br>FR，频率，默认是300mHZ<br>所以我们可以用上面的脚本输出直接填写CE到GE之间。<br>当然也可以在nec edit里面输入数据，下面是我的yagi.nec</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">CM yagi</span><br><span class="line">CE</span><br><span class="line">SY Ref=<span class="number">0.2788104</span></span><br><span class="line">SY Dip=<span class="number">0.2620818</span></span><br><span class="line">SY Dir=<span class="number">0.2453532</span></span><br><span class="line">SY RefToDip=<span class="number">0.0836431</span></span><br><span class="line">SY DipToDir=<span class="number">0.0557621</span></span><br><span class="line">SY RefToDir=RefToDip+DipToDir</span><br><span class="line">SY DirToDir=<span class="number">0.0836431</span></span><br><span class="line">SY RefToDir2=RefToDir+DirToDir</span><br><span class="line">GW <span class="number">1</span> <span class="number">9</span> -Ref/<span class="number">2</span> <span class="number">0</span> <span class="number">0.2</span> Ref/<span class="number">2</span> <span class="number">0</span> <span class="number">0.2</span> <span class="number">0.0028</span></span><br><span class="line">GW <span class="number">2</span> <span class="number">9</span> -Dip/<span class="number">2</span> RefToDip <span class="number">0.2</span> Dip/<span class="number">2</span> RefToDip <span class="number">0.2</span> <span class="number">0.0028</span></span><br><span class="line">GW <span class="number">3</span> <span class="number">9</span> -Dir/<span class="number">2</span> RefToDir <span class="number">0.2</span> Dir/<span class="number">2</span> RefToDir <span class="number">0.2</span> <span class="number">0.0028</span></span><br><span class="line">GW <span class="number">4</span> <span class="number">9</span> -Dir/<span class="number">2</span> RefToDir2 <span class="number">0.2</span> Dir/<span class="number">2</span> RefToDir2 <span class="number">0.2</span> <span class="number">0.0028</span></span><br><span class="line">GE	<span class="number">0</span></span><br><span class="line">GN	<span class="number">-1</span></span><br><span class="line">EK</span><br><span class="line">EX	<span class="number">0</span>	<span class="number">2</span>	<span class="number">5</span>	<span class="number">0</span>	<span class="number">1</span>	<span class="number">0</span>			'Voltage source (<span class="number">1</span>+j0) at wire <span class="number">1</span> segment <span class="number">5.</span></span><br><span class="line">FR	<span class="number">0</span>	<span class="number">0</span>	<span class="number">0</span>	<span class="number">0</span>	<span class="number">538</span>	<span class="number">0</span></span><br><span class="line">EN</span><br></pre></td></tr></table></figure>
-
-
-<p>符号symbols<br><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608816824890.png" alt=""></p>
-<p>几何图geometry<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608816849544.png" alt=""><br>这里一共是四个振子。<br>type，即振子类型，wire表示导线，还要面、镜像等类型。<br>segs，即振子段数<br>x1、y1、z1和x2、y2、z2，是振子的3d坐标，定义了振子两个端点坐标。<br>radius，振子半径，单位米</p>
-<p>源负载source/load<br><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608816971842.png" alt=""><br> tag表示馈线接入前面几何图的第二根振子即偶极子，seg表示第五段。</p>
-<p>频率Freq/Ground<br><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817003023.png" alt=""><br>填写要发射或者接收的频率</p>
-<p>填写完后保存，返回主界面。点击计算器按钮<br><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817158029.png" alt=""></p>
-<p>选择远场，点击建立。<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817053823.png" alt=""></p>
-<p>就可以看到增益图像，要看3d渲染图必须使用4nec2x<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817099593.png" alt=""></p>
-<p> 点击3D按钮<br><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817215533.png" alt=""><br>默认显示可能只有个框架，点击下面红框处切换到muti-color可以看到多彩渲染，在图象上按住鼠标左键旋转，按住右键移动<br><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817294898.png" alt=""></p>
-<p>点击主界面的计算器，选择频率，计算500-550频率范围下的驻波、增益<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817500931.png" alt=""><br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817482989.png" alt=""><br>可以看到天线在在目标频率538驻波比很高，效果很差。</p>
-<p>优化<br>点击主界面的优化按钮<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817574920.png" alt=""><br>选择优化功能，optimize是穷举优化，速度较快但效果差，evolve使用进化方式优化，速度慢效果最佳。<br>选择optimize<br>选择要优化的权重，这里选择驻波比swr<br>选择要优化的数据，填写前面计算的修正值，点击开始。大概跑个一两分钟就优化完毕，可以点击上传文件保存当前优化后模型为新模型。优化记录最后一行是最优结果。<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817888016.png" alt=""><br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818020509.png" alt=""></p>
-<p> 打开前面保存的新模型，计算下500-550的驻波比<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818121226.png" alt=""><br> 可以看到在538mhz的驻波比基本等于1，而且低频部分驻波比都小于2，实现了目完美谐振和较高的频宽。最后来个538mhz八木天线增益渲染图<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818312514.png" alt=""></p>
-<p> 平安夜，聊为消遣。圣诞快乐呀(^o^)／</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-0x01最小公约数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
+    	 
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/08/05/0x01%E6%9C%80%E5%B0%8F%E5%85%AC%E7%BA%A6%E6%95%B0/" target="_blank">0x01最小公约数</a>
+	  <a class="archive-article-title" href="/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/" target="_blank">0x02八木天线基础和4nec2仿真</a>
   
     </h1>
   
 
 
-  
-  
-<a href="/2020/08/05/0x01%E6%9C%80%E5%B0%8F%E5%85%AC%E7%BA%A6%E6%95%B0/" class="archive-article-date">
-        <time datetime="2020-08-05T13:18:22.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
+        <div class="article-info info-on-right">
+          
+          
 
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="0x01求最小公约数"><a href="#0x01求最小公约数" class="headerlink" title="0x01求最小公约数"></a>0x01求最小公约数</h1><hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:u8</span></span><br><span class="line"><span class="comment"># num for numerator, numden for denominator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">comdivisor</span><span class="params">(num,numden)</span>:</span></span><br><span class="line">    <span class="keyword">while</span> num % numden != <span class="number">0</span>:</span><br><span class="line">        a = num</span><br><span class="line">        b = numden</span><br><span class="line">        num = b</span><br><span class="line">        numden = a % b        </span><br><span class="line">    <span class="keyword">return</span> numden</span><br><span class="line"></span><br><span class="line">a , b = input(<span class="string">"input fraction:  "</span>).split(<span class="string">" "</span>)</span><br><span class="line">print(comdivisor(int(a),int(b)))</span><br></pre></td></tr></table></figure>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/05/0x01%E6%9C%80%E5%B0%8F%E5%85%AC%E7%BA%A6%E6%95%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/05/15/hello-world/" target="_blank">hello-world</a>
+    </div></section>
   
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/05/15/hello-world/" class="archive-article-date">
-        <time datetime="2020-05-14T16:02:11.453Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <hr>
-<h2 id="Welcome！-面包新博客上线-≧▽≦"><a href="#Welcome！-面包新博客上线-≧▽≦" class="headerlink" title="Welcome！ 面包新博客上线(≧▽≦)/"></a>Welcome！ 面包新博客上线(≧▽≦)/</h2><p>记录于2020.5.17</p>
 
     
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/05/15/hello-world/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -512,9 +276,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

@@ -6,21 +6,44 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://nkiiiiid.github.io">
-  <title>nkiiiiid</title>
+  <title>0x02八木天线基础和4nec2仿真 | nkiiiiid</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <!-- <meta name="keywords" content="">
-    <meta name="description" content=""> -->
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="nkiiiiid">
-<meta property="og:url" content="https://nkiiiiid.github.io/index.html">
+  <meta name="description" content="天线从入门到牛逼 0x00 前言 天线特别是八木天线有很广泛的应用范围，预警机上的大圆盘实质也是个旋转的八木天线，纵观村里的博客、论坛，对天线原理，计算，仿真的讲解很少，概念模糊，内容重复简单者居多，对4nec2仿真的讲解更是凤毛麟角，本文旨在为天线爱好者提供一个指南，把应该了解和掌握的概念讲清楚，并且以接收538mhz地面波为例实现一个良好性能的八木天线。内容如有错误，欢迎大佬们斧正。 0x01">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0x02八木天线基础和4nec2仿真">
+<meta property="og:url" content="https://nkiiiiid.github.io/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/index.html">
 <meta property="og:site_name" content="nkiiiiid">
+<meta property="og:description" content="天线从入门到牛逼 0x00 前言 天线特别是八木天线有很广泛的应用范围，预警机上的大圆盘实质也是个旋转的八木天线，纵观村里的博客、论坛，对天线原理，计算，仿真的讲解很少，概念模糊，内容重复简单者居多，对4nec2仿真的讲解更是凤毛麟角，本文旨在为天线爱好者提供一个指南，把应该了解和掌握的概念讲清楚，并且以接收538mhz地面波为例实现一个良好性能的八木天线。内容如有错误，欢迎大佬们斧正。 0x01">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608819252405.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608813976117.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814244845.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814343370.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814404843.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814578748.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608816824890.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608816849544.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608816971842.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817003023.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817158029.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817053823.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817099593.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817215533.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817294898.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817500931.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817482989.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817574920.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817888016.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818020509.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818121226.png">
+<meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818312514.png">
+<meta property="article:published_time" content="2020-12-24T12:40:48.835Z">
+<meta property="article:modified_time" content="2020-12-24T14:14:49.855Z">
 <meta property="article:author" content="海森堡测不准面包">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608819252405.png">
   
     <link rel="alternative" href="/atom.xml" title="nkiiiiid" type="application/atom+xml">
   
@@ -193,25 +216,25 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-0x02八木天线基础和4nec2仿真" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-0x02八木天线基础和4nec2仿真" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/" target="_blank">0x02八木天线基础和4nec2仿真</a>
-  
+    <h1 class="article-title" itemprop="name">
+      0x02八木天线基础和4nec2仿真
     </h1>
   
 
 
   
   
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/" class="archive-article-date">
         <time datetime="2020-12-24T12:40:48.835Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-24</time>
 </a>
@@ -219,6 +242,27 @@
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">2.8k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">11分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
@@ -280,7 +324,59 @@
     
 
     
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃鸡=v=<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
 
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          海森堡测不准面包
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://nkiiiiid.github.io/2020/12/24/0x02八木天线基础和4nec2仿真/" title="0x02八木天线基础和4nec2仿真" target="_blank">https://nkiiiiid.github.io/2020/12/24/0x02八木天线基础和4nec2仿真/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
+          
+          面包出品 必属精品\(≧▽≦)/
+        </li>
+        
+      </ul>
+    </div>
     
 
   </div>
@@ -290,16 +386,76 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://nkiiiiid.github.io/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/05/0x01%E6%9C%80%E5%B0%8F%E5%85%AC%E7%BA%A6%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">0x01最小公约数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -320,159 +476,14 @@
 
 
 
-  
-    <article id="post-0x01最小公约数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/08/05/0x01%E6%9C%80%E5%B0%8F%E5%85%AC%E7%BA%A6%E6%95%B0/" target="_blank">0x01最小公约数</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/08/05/0x01%E6%9C%80%E5%B0%8F%E5%85%AC%E7%BA%A6%E6%95%B0/" class="archive-article-date">
-        <time datetime="2020-08-05T13:18:22.849Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="0x01求最小公约数"><a href="#0x01求最小公约数" class="headerlink" title="0x01求最小公约数"></a>0x01求最小公约数</h1><hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding:u8</span></span><br><span class="line"><span class="comment"># num for numerator, numden for denominator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">comdivisor</span><span class="params">(num,numden)</span>:</span></span><br><span class="line">    <span class="keyword">while</span> num % numden != <span class="number">0</span>:</span><br><span class="line">        a = num</span><br><span class="line">        b = numden</span><br><span class="line">        num = b</span><br><span class="line">        numden = a % b        </span><br><span class="line">    <span class="keyword">return</span> numden</span><br><span class="line"></span><br><span class="line">a , b = input(<span class="string">"input fraction:  "</span>).split(<span class="string">" "</span>)</span><br><span class="line">print(comdivisor(int(a),int(b)))</span><br></pre></td></tr></table></figure>
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/08/05/0x01%E6%9C%80%E5%B0%8F%E5%85%AC%E7%BA%A6%E6%95%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
 
 
 
 
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/05/15/hello-world/" target="_blank">hello-world</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/05/15/hello-world/" class="archive-article-date">
-        <time datetime="2020-05-14T16:02:11.453Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <hr>
-<h2 id="Welcome！-面包新博客上线-≧▽≦"><a href="#Welcome！-面包新博客上线-≧▽≦" class="headerlink" title="Welcome！ 面包新博客上线(≧▽≦)/"></a>Welcome！ 面包新博客上线(≧▽≦)/</h2><p>记录于2020.5.17</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/05/15/hello-world/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
 
 
 
 
-  
-  
 
 
           </div>
@@ -512,8 +523,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
