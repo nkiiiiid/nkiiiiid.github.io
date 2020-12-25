@@ -10,12 +10,10 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="天线从入门到牛逼">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="0x02八木天线基础和4nec2仿真">
 <meta property="og:url" content="https://nkiiiiid.github.io/2020/12/24/0x02%E5%85%AB%E6%9C%A8%E5%A4%A9%E7%BA%BF%E5%9F%BA%E7%A1%80%E5%92%8C4nec2%E4%BB%BF%E7%9C%9F/index.html">
 <meta property="og:site_name" content="nkiiiiid">
-<meta property="og:description" content="天线从入门到牛逼">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608819252405.png">
 <meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608813976117.png">
@@ -40,7 +38,7 @@
 <meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818121226.png">
 <meta property="og:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818312514.png">
 <meta property="article:published_time" content="2020-12-24T12:40:48.835Z">
-<meta property="article:modified_time" content="2020-12-24T15:00:46.439Z">
+<meta property="article:modified_time" content="2020-12-25T05:16:47.474Z">
 <meta property="article:author" content="海森堡测不准面包">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608819252405.png">
@@ -269,10 +267,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="天线从入门到牛逼"><a href="#天线从入门到牛逼" class="headerlink" title="天线从入门到牛逼"></a>天线从入门到牛逼</h1><p><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608819252405.png" alt="圣诞快乐"></p>
+    <p><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608819252405.png" alt="圣诞快乐"></p>
 <a id="more"></a>
-
-<h4 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h4><p> 天线特别是八木天线有很广泛的应用范围，预警机上的大圆盘实质也是个旋转的八木天线，纵观村里的博客、论坛，对天线原理，计算，仿真的讲解很少，概念模糊，内容重复简单者居多，对4nec2仿真的讲解更是凤毛麟角，本文旨在为天线爱好者提供一个指南，把应该了解和掌握的概念讲清楚，并且以接收538mhz地面波为例实现一个良好性能的八木天线。内容如有错误，欢迎大佬们斧正。</p>
+<h1 id="天线从入门到牛逼"><a href="#天线从入门到牛逼" class="headerlink" title="天线从入门到牛逼"></a>天线从入门到牛逼</h1><h4 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h4><p> 天线特别是八木天线有很广泛的应用范围，预警机上的大圆盘实质也是个旋转的八木天线，纵观村里的博客、论坛，对天线原理，计算，仿真的讲解很少，概念模糊，内容重复简单者居多，对4nec2仿真的讲解更是凤毛麟角，本文旨在为天线爱好者提供一个指南，把应该了解和掌握的概念讲清楚，并且以接收538mhz地面波为例实现一个性能良好的八木天线。内容如有错误，欢迎大佬们斧正。</p>
 <h4 id="0x01-天线发射基本原理"><a href="#0x01-天线发射基本原理" class="headerlink" title="0x01 天线发射基本原理"></a>0x01 天线发射基本原理</h4><p>电以接近光的速度在导体中传播，当遇到导体中的不连续点时，它就会被反射回信号源。如果电流是交变的，并且反射电流在恰当的时刻返回原点或馈电点，那么电流就会受到后面各周期的强化，从而只需要很小的能量就可维持天线内的驻波，当天线内驻波比为1时，天线就形成串联谐振电路。在谐振状态下，电压在电流为最大值的中点（振子的中点）是很少，在两端却有极大值，欧姆定律适用于天线，在中点由于电流大，电压低，所以电阻较小，在两端情形恰好相反，因而阻抗较高。<br>1/4波长的开路线相当于一个串联谐振电路，整个负载是呈纯电阻性的，在有些场合，由于环境的因素，天线的长度往往受到限制，所以出现了加载天线。根据传输线的理论，长度小于1/4波长的倍数的天线其阻抗呈容性，即电容+电阻，这时天线不产生谐振，为此我们可以在天线上加一个电感来与天线平衡，从而使天线发生谐振，我们称这种天线为加载天线。<br>长度大于1/4波长的倍数天线就是电感+电阻。</p>
 <h4 id="0x02-八木天线"><a href="#0x02-八木天线" class="headerlink" title="0x02 八木天线"></a>0x02 八木天线</h4><p> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608813976117.png" alt="八木天线结构"><br>由反射器reflector，主振子dipole，引向器director，横梁，支架组成。与馈线连接的振子称为主振子（有源振子，激励振子，偶极子）。振子的总数量即反射器，偶极子和引向器总数又称为单元数。<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814244845.png" alt=""><br>主振子有多种类型，包括半波对称振子，折合半波振子等。半波对称振子是两臂长度相等，总长是二分之一波长。主振子连接馈线的端点称为馈源端子，必须和横梁绝缘，反射器和引向器和横梁导通，横梁接地。<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814343370.png" alt=""><br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608814404843.png" alt=""></p>
 <h4 id="0x03-天线振子长度计算"><a href="#0x03-天线振子长度计算" class="headerlink" title="0x03 天线振子长度计算"></a>0x03 天线振子长度计算</h4><p>天线振子长度是指振子端点到主支架的长度，通常是四分之一波长x波长缩短率，如果是八木天线这类成对振子组成的天线，一对振子长度就是二分之一波长。<br>天线振子长度（单位米）= （300/f）<em>0.25</em>0.96, f表示单位为MHz的频率，0.96是波长缩短率（电磁波在天线上传播时，一些因素导致波长变短，即缩短效应，工程上一般认为缩短5%左右）。<br>VHF 144.00MHz的天线振子长度为 （300 / 144.00MHz） * 0.25 * 0.96 = 0.5 （米）</p>
@@ -319,8 +316,8 @@
 <p>就可以看到增益图像，要看3d渲染图必须使用4nec2x<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817099593.png" alt=""></p>
 <p> 点击3D按钮<br><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817215533.png" alt=""><br>默认显示可能只有个框架，点击下面红框处切换到muti-color可以看到多彩渲染，在图象上按住鼠标左键旋转，按住右键移动<br><img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817294898.png" alt=""></p>
 <p>点击主界面的计算器，选择频率，计算500-550频率范围下的驻波、增益<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817500931.png" alt=""><br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817482989.png" alt=""><br>可以看到天线在在目标频率538驻波比很高，效果很差。</p>
-<p>优化<br>点击主界面的优化按钮<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817574920.png" alt=""><br>选择优化功能，optimize是穷举优化，速度较快但效果差，evolve使用进化方式优化，速度慢效果最佳。<br>选择optimize<br>选择要优化的权重，这里选择驻波比swr<br>选择要优化的数据，填写前面计算的修正值，点击开始。大概跑个一两分钟就优化完毕，可以点击上传文件保存当前优化后模型为新模型。优化记录最后一行是最优结果。<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817888016.png" alt=""><br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818020509.png" alt=""></p>
-<p> 打开前面保存的新模型，计算下500-550的驻波比<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818121226.png" alt=""><br> 可以看到在538mhz的驻波比基本等于1，而且低频部分驻波比都小于2，实现了目完美谐振和较高的频宽。最后来个538mhz八木天线增益渲染图<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818312514.png" alt=""></p>
+<p>优化<br>点击主界面的优化按钮<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817574920.png" alt=""><br>选择优化功能，optimize是穷举优化，速度较快但效果差，evolve使用进化方式优化，速度慢效果最佳。<br>选择evolve<br>选择要优化的权重，这里选择驻波比swr<br>选择要优化的数据，填写前面计算的修正值，点击开始。大概跑个一两分钟就优化完毕，可以点击上传文件保存当前优化后模型为新模型。优化记录最后一行是最优结果。<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608817888016.png" alt=""><br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818020509.png" alt=""></p>
+<p> 打开前面保存的新模型，计算下500-550的驻波比<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818121226.png" alt=""><br> 可以看到在538mhz的驻波比基本等于1，而且低频部分驻波比都小于2，实现了完美谐振和较高频宽。最后来个538mhz八木天线增益渲染图<br> <img src="https://gitee.com/nkiiiiid/xzpic/raw/master/xz/1608818312514.png" alt=""></p>
 <p> 平安夜，聊为消遣。圣诞快乐呀(^o^)／</p>
 
     
